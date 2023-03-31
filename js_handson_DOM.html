@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(62, 167, 49);
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading" style="text-align: center;">DOM HANDSON</h1>
+    <hr>
+    <h3> Q1. Write the code to access element which is having id as "text"?</h3>
+    <div id="text">
+        <p>Welcome</p>
+    </div>
+    <h3>Q2. Write the code to access element which is having tag as "h1"</h3>
+    <h1>heading</h1>
+    <h3>Q3. Write the code to access element which is having class as "box"</h3>
+    <div class="box"></div>
+    <h3>Q4. Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</h3>
+    <h1 id="hello">Hello</h1>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <button onclick="toggleFlexDirection()">Change Flex Direction</button>
+    <h3>Q5. What’s the difference between window vs document?</h3>
+    <table border="1" cellpadding='10'>
+        <th>Window</th>
+        <th>Document </th>
+        <tr>
+            <td>1. It represents the browser window in which you are seeing the content.</td>
+            <td>1. It represents the document loaded inside the window or browser.</td>
+        </tr>
+        <tr>
+            <td>2. The properties related to it are stored in the window object</td>
+            <td>2. The properties related to it are stored in the document object.</td>
+        </tr>
+
+        <tr>
+            <td>3. It is loaded before the document because of the window container document.</td>
+            <td>3. It is loaded after the loading window because the window contains a document.</td>
+        </tr>
+
+        <tr>
+            <td>4. The window is the global element for all objects, functions, etc.</td>
+            <td>4. It is the root element of the document object model.</td>
+        </tr>
+
+        <tr>
+            <td>5. It is an object of the browser.</td>
+            <td>5. It is an object of the window.</td>
+        </tr>
+
+        <tr>
+            <td>6. We can access document object properties inside the window. </td>
+            <td>6. We can not access windows objects properties inside the document.</td>
+        </tr>
+
+        <tr>
+            <td>7. Example: window.document.title will return the title of the document.</td>
+            <td>7. Example: document.title will return the title of the document</td>
+        </tr>
+
+        <tr>
+            <td>8.
+                <pre>logically:
+        window:{
+           document:{properties}
+        }
+            
+            </pre>
+            </td>
+            <td>8.
+                <script>
+                    document.getElementById("hello").innerHTML = "Hello World";
+                    function toggleFlexDirection() {
+                        var container = document.querySelector(".container");
+                        if (container.style.flexDirection === "row") {
+                            container.style.flexDirection = "column";
+
+                        } else {
+                            container.style.flexDirection = "row";
+                        }
+                    }
+
+                </script>
+</body>
+
+</html>

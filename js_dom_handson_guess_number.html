@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 200px;
+            height: 70px;
+            font-size: 1.5rem;
+        }
+
+        body {
+            background-color: rgb(66, 44, 44);
+        }
+
+        #numbox {
+            width: 150px;
+            height: 120px;
+            background-color: gray;
+            text-align: center;
+            font-size: 5rem;
+            margin-left: 600px;
+        }
+
+        #gnumb {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #eee;
+        }
+
+        #between {
+            color: #eee;
+            font-size: 2rem;
+            margin: -264px 10px 132px 1024px;
+        }
+
+        #inp {
+            background: none;
+            border: 4px solid #eee;
+            font-family: inherit;
+            color: inherit;
+            font-size: 5rem;
+            padding: 2.5rem;
+            width: 8rem;
+            text-align: center;
+            display: block;
+            margin-bottom: 3rem;
+            margin: 300px 10px 10px 150px;
+        }
+
+        #score {
+            width: 300px;
+            height: 200px;
+            margin: -200px 10px 10px 850px;
+            color: #eee;
+        }
+
+        #check {
+
+            margin: 10px 10px 10px 200px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="btn"><button onclick="location.reload()">play again</button></div>
+            <div id="gnumb">
+                <h1>Guess My Number</h1>
+                <div id="numbox">?</div>
+            </div>
+            <div id="between">(between 1 and 100)</div>
+        </header>
+        <div id="ff"><input type="number" id="inp"></div>
+        <div><button onclick="sub()" id="check">check!</button></div>
+        <div id="score">
+            <h1 id="msg">Start Guessing...</h1>
+            <p>💯 Chances: <span id="scro">100</span></p>
+            <p>🥇 highscore: <span id="max">0</span></p>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        let random = Math.floor(Math.random() * 100) + 1;
+        console.log(random);
+        let = scr = 100;
+       
+        function sub() {
+            let N = document.getElementById("inp").value;
+            let message = "";
+            if (N > random) {
+                message = "Your Guess is High";
+            }
+            if (N < random) {
+                message = "Your Guess is Low";
+            }
+
+            if (N == random) {
+                message = "😎😎Hurray You Won 😎😎";
+                document.getElementById("max").innerHTML=scr;
+                document.getElementById("numbox").innerHTML=N;
+                document.body.style.backgroundColor = 'green'
+            }
+            document.getElementById("msg").innerHTML = message;
+            if (N > random || N < random) {
+            scr = scr - 1;
+            document.getElementById("scro").innerHTML = scr;
+        }
+
+        }
+       
+    </script>
+</body>
+
+</html>
